@@ -77,3 +77,57 @@ nav {
 .navdiv:hover {
     background-color: rebeccapurple;
 }
+
+.gamecontent {
+    width: 100%;
+    height: 100%;
+}
+
+.published {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    margin-top: 32px;
+}
+
+.pubitem {
+    border-radius: 16px;
+    border-style: solid;
+    border-color: white;
+    width: 512px;
+    height: 512px;
+    background-color: darkblue;
+}
+
+.pubitem h1 {
+    color: white;
+    font-family: "Source Code Pro", sans-serif;
+    margin: 0px;
+    margin-left: 8px;
+}
+
+.pubitem p {
+    color: white;
+    font-family: "Source Code Pro", sans-serif;
+    margin: 8px;
+}
+
+#publink {
+    font-size: 24px;
+    margin-top: 16px;
+}
+
+.publinkdiv {
+    background-color: yellow;
+    border-color: yellow;
+    border-style: solid;
+}
+
+.pubimage {
+    width: inherit;
+    border-radius: 16px;
+    border-bottom-style: solid;
+    border-color: white;
+}
