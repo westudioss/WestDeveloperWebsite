@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 body {
-    background-image: url(imgs/background.jpeg);
+    background-image: url("../imgs/background.jpeg");
     
     padding: 64px;
     
@@ -15,7 +15,7 @@ body {
 #logo {
     width: 512px;
     height: 196px;
-    background-image: url("./imgs/westdevlogo.png");
+    background-image: url("../imgs/westdevlogo.png");
     background-size: cover;
     border-radius: 64px;
     border-color: white;
@@ -38,15 +38,24 @@ header h1 {
     text-align: center;
 }
 
+#welcome {
+    font-size: 64px;
+    font-family: "Source Code Pro", sans-serif;
+    color: white;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+
 nav {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto;
     grid-column-gap: 32px;
     background-color: navy;
     border-radius: 16px;
     border-style: solid;
     border-color: darkblue;
-    width: 50%;
+    width: 100%;
     margin: auto;
     margin-top: 32px;
     height: 64px;

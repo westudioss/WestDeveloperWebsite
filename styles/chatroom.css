@@ -1,0 +1,57 @@
+.post-container {
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #2704a7;
+}
+
+#float-right {
+    float: right;
+}
+
+table {
+    width: 100%;
+}
+
+.chat-messages {
+    height: 32px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 8px;
+}
+
+.post-container {
+    color: white;
+    font-size: 20px;
+}
+
+.post-container p {
+    font-size: 24px;
+}
+
+#send-btn {
+    background-color: #53a556;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#send-btn:hover {
+    background-color: #45a049;
+}

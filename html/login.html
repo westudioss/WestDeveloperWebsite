@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+    
+        <meta charset="utf-8"/>
+        <title>WestDeveloper Games</title>
+        <link rel="stylesheet" href="../styles/index.css">
+        <link rel="stylesheet" href="../styles/login.css">
+
+        <style>
+            /* Additional styles for messages */
+            #authMessage {
+              opacity: 0;
+              transition: opacity 0.5s ease;
+            }
+            
+            /* Success message style */
+            .success-message {
+              background-color: #d4edda;
+              color: #155724;
+            }
+            
+            /* Error message style */
+            .error-message {
+              background-color: #f8d7da;
+              color: #721c24;
+            }
+          </style>
+        
+    </head>
+    
+    <body>
+        
+        <header>
+            
+            <div><h1>Login</h1></div>
+            <div id="logo"></div>
+            <div><h1>Signup</h1></div>
+        
+        </header>
+        
+        <nav id="nav">
+            
+        </nav>
+
+        <main>
+            <div class="auth-container">
+              <div class="auth-box">
+                <h2 class="auth-title" id="authTitle">Sign Up</h2>
+                <form id="authForm">
+                  <div class="input-group">
+                    <input type="text" id="username" placeholder="Username" required>
+                  </div>
+                  <div class="input-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                  </div>
+                  <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                  </div>
+                  <div class="options">
+                    <div class="remember">
+                      <input type="checkbox" id="remember">
+                      <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot">Forgot Password?</a>
+                  </div>
+                  <button type="submit" class="btn" id="authBtn">Sign Up</button>
+                  <p class="switch-prompt">Already have an account? <a href="#" id="toggleAuth">Login</a></p>
+                </form>
+              </div>
+            </div>
+          </main>
+        
+          <script type="module" src="../scripts/firebaseAPI.js"></script>
+    
+    </body>
+    <script type="module" src="../scripts/navbar.js"></script>
+</html>
