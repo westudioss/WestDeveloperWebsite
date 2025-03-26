@@ -3,32 +3,32 @@ let arr = [
 
     {
         ref : 'onlinegames.html',
-        img : "../imgs/joystick.png",
+        img : "./imgs/joystick.png",
         name : 'Online Games'
     },
     {
         ref : 'publishedgames.html',
-        img : "../imgs/gamefolder.png",
+        img : "./imgs/gamefolder.png",
         name : 'Published Games'
     },
     {
         ref : 'https://discord.gg/HrH8CsvMwK',
-        img : "../imgs/discord.png",
+        img : "./imgs/discord.png",
         name : 'Discord'
     },
     {
         ref : 'index.html',
-        img : "../imgs/home.png",
+        img : "./imgs/home.png",
         name : 'Home'
     },
     {
         ref : 'chatroom.html',
-        img : "../imgs/chat.png",
+        img : "./imgs/chat.png",
         name : 'Chatroom'
     },
     {
         ref : 'login.html',
-        img : "../imgs/enter.png",
+        img : "./imgs/enter.png",
         name : 'Login'
     },
 
