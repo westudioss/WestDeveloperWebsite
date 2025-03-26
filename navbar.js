@@ -31,6 +31,11 @@ let arr = [
         img : "./imgs/enter.png",
         name : 'Login'
     },
+    {
+        ref : 'profile.html',
+        img : "./imgs/user.png",
+        name : 'Profile'
+    },
 
 ]
 

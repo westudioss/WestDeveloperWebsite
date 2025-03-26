@@ -40,15 +40,17 @@ async function createPost() {
 
     if (!message) return; // Prevent empty posts
 
-    const date = new Date();
-    await addDoc(collection(db, "posts"), {
-      username: userInfo.username,
-      text: message,
-      year: date.getFullYear(),
-      month: date.getMonth() + 1,
-      day: date.getDate(),
-      time: date.getTime(),
-    });
+    if (userInfo) {
+      const date = new Date();
+      await addDoc(collection(db, "posts"), {
+        username: userInfo.username,
+        text: message,
+        year: date.getFullYear(),
+        month: date.getMonth() + 1,
+        day: date.getDate(),
+        time: date.getTime(),
+      });
+    }
 
     messageInput.value = ""; // Clear input after posting
   } catch(error) {
@@ -61,7 +63,7 @@ function renderPosts(posts) {
   const postsContainer = document.getElementById("all-posts");
   
   // Sort posts by time in descending order
-  posts.sort((a, b) => b.time - a.time);
+  posts.sort(({time:a}, {time:b}) => b-a);
 
   const postsHTML = posts.map(post => `
     <div class="post-container">

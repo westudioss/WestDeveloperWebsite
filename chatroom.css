@@ -43,6 +43,18 @@ table {
     font-size: 24px;
 }
 
+.post-container table {
+    border-radius: 8px;
+    border-bottom-style: solid;
+    border-color: white;
+}
+
+#temp {
+    text-align: center;
+    color: white;
+    font-size: 32px;
+}
+
 #send-btn {
     background-color: #53a556;
     color: white;

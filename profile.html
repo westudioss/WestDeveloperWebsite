@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+    
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WestDeveloper Games</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="profile.css">
+    </head>
+    
+    <body>
+        
+        <header>
+            
+            <div><h1>&nbsp;&nbsp;Your&nbsp;</h1></div>
+            <div id="logo"></div>
+            <div><h1>Profile</h1></div>
+        
+        </header>
+        
+        <nav id="nav"></nav>
+        <br><br>
+        <section class="container">
+            <div id="toolbar">
+                <label for="stroke">Stroke</label>
+                <input id="stroke" name='stroke' type="color">
+                <label for="lineWidth">Line Width</label>
+                <input id="lineWidth" name='lineWidth' type="number" value="5">
+                <button id="clear">Clear</button>
+                <button id="save">Save</button>
+            </div>
+            <div class="drawing-board">
+                <canvas id="drawing-board"></canvas>
+            </div>
+        </section>
+
+        <br><br>
+
+        <div id="picturediv">
+            <canvas id="picture"></canvas>
+        </div>
+
+        <script type="module" src="profile.js"></script>
+    
+    </body>
+    <script type="module" src="navbar.js"></script>
+</html>

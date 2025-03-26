@@ -15,10 +15,10 @@ async function getUserInfo() {
       return null;       
     }     
   } catch (error) {       
-    console.error("Error getting user info:", error);       
+    console.error("Error getting user info:", error);
     return null;     
   }   
-}   
+}
 
 async function displayUsername() {
     const userInfo = await getUserInfo(); 

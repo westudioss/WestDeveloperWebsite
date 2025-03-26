@@ -82,6 +82,7 @@ function handleAuth(event) {
           email: email,
           username: username,
           createdAt: new Date().toISOString(),
+          picture : "",
         };
         
         // Save to Firestore
