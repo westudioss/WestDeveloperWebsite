@@ -26,12 +26,30 @@ async function displayUsername() {
     if (userInfo) {
         let str = "<p>Welcome " + userInfo.username + "</p>";
 
-        document.getElementById("welcome").innerHTML = str;
+        document.getElementById("welcometext").innerHTML = str;
+    }
+}
+
+async function loadPicture() {
+    const userInfo = await getUserInfo();
+    if (userInfo) {
+      const user = auth.currentUser;
+      
+      const c = document.getElementById("picture").getContext("2d");
+      const img = new Image();
+
+      img.addEventListener("load", () => {
+        c.drawImage(img, 0, 0);
+      });
+      
+      img.src = userInfo.picture;
+
     }
 }
 
 onAuthStateChanged(auth, async (user) => {     
   if (user) {             
-    displayUsername();      
+    displayUsername();  
+    loadPicture();    
   }   
 });  

@@ -8,8 +8,18 @@
     background-color: #2704a7;
 }
 
-#float-right {
+#post-date {
     float: right;
+    font-size: 24px;
+}
+
+#post-name {
+    float: left;
+    font-size: 24px;
+}
+
+#float-left {
+    float: left;
 }
 
 table {
@@ -66,4 +76,13 @@ table {
 
 #send-btn:hover {
     background-color: #45a049;
+}
+
+#picturediv {
+    width: 64px;
+    height: 64px;
+    margin: 0;
+    background-color: white;
+    border-radius: 32px;
+    overflow: hidden;
 }

@@ -44,6 +44,7 @@ async function createPost() {
       const date = new Date();
       await addDoc(collection(db, "posts"), {
         username: userInfo.username,
+        profPic: userInfo.picture,
         text: message,
         year: date.getFullYear(),
         month: date.getMonth() + 1,
@@ -69,8 +70,9 @@ function renderPosts(posts) {
     <div class="post-container">
       <table>
         <tr>
-          <td>${post.username}</td>
-          <td id="float-right">${post.year}/${post.month}/${post.day}</td>
+          <td id="float-left"><div id="picturediv"><canvas class="picture" id="${post.profPic}"></canvas></div></td>
+          <td id="post-name">${post.username}</td>
+          <td id="post-date">${post.year}/${post.month}/${post.day}</td>
         </tr>
       </table>
       <br>
@@ -79,6 +81,21 @@ function renderPosts(posts) {
   `).join('');
 
   postsContainer.innerHTML = postsHTML;
+}
+
+function renderImages() {
+    var pics = document.getElementsByClassName("picture");
+
+    for(var i = 0; i < pics.length; i++) {
+      const c = pics[i].getContext("2d");
+      const img = new Image();
+
+      img.addEventListener("load", () => {
+        c.drawImage(img, 0, 0, 64, 64);
+      });
+      
+      img.src = pics[i].id;
+  }
 }
 
 // Real-time listener for posts
@@ -91,6 +108,7 @@ function setupPostsListener() {
       ...doc.data()
     }));
     renderPosts(posts);
+    renderImages();
   });
 }
 

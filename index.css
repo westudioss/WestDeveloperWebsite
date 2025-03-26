@@ -1,15 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 body {
-    background-image: url("./imgs/background.jpeg");
-    
     padding: 64px;
     
-    min-height: 500px;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: url("./imgs/background.jpeg");
+    background-repeat: repeat;
+    background-position: 0 0;
+    background-size: auto 100%;
+    /*adjust s value for speed*/
+    animation: animatedBackground 500s linear infinite;
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+/*use negative width if you want it to flow right to left else and positive for left to right*/
+  to {
+    background-position: -10000px 0;
+  }
 }
 
 #logo {
@@ -43,8 +52,13 @@ header h1 {
     font-family: "Source Code Pro", sans-serif;
     color: white;
     text-align: center;
-    width: 50%;
+    width: 45%;
+    height: 300px;
     margin: auto;
+}
+
+#welcometext {
+    float: left;
 }
 
 nav {
@@ -141,4 +155,15 @@ nav {
     border-radius: 16px;
     border-bottom-style: solid;
     border-color: white;
+}
+
+#picturediv {
+    width: 128px;
+    height: 128px;
+    background-color: white;
+    border-radius: 64px;
+    overflow: hidden;
+    float: left;
+    margin-top: 32px;
+    margin-left: 32px;
 }
