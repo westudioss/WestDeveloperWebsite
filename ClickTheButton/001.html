@@ -10,12 +10,13 @@
         <meta name ="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta charset="utf-8"/>
+        <link rel="stylesheet" href="../index.css">
 
         <!-- Builtin injector for disabling cache -->
         <meta http-equiv="pragma" content="no-cache"/>
 
         <!-- Set the title bar of the page -->
-        <title>Modular Space Ships</title>
+        <title>ClickTheButton</title>
 
         <!-- Custom PreStyle code is injected here -->
         
@@ -50,9 +51,8 @@
             
             /* Custom Runner Styles */
             div.gm4html5_div_class {
-                margin: 0px;
-                padding: 0px;
-                border: 0px;
+                width: 70%;
+                margin: auto;
             }
             div.gm4html5_login {
                 padding: 20px;
@@ -90,19 +90,29 @@
     
 
     <body>
+        <header>
+            
+            <div><h1>Official</h1></div>
+            <div id="logo"></div>
+            <div><h1>Website&nbsp;</h1></div>
+        
+        </header>
+        
+        <nav id="nav"></nav>
+        
         <div class="gm4html5_div_class" id="gm4html5_div_id">
             
             <!-- Builtin injector for splash screen -->
             
 
             <!-- Create the canvas element the game draws to -->
-            <canvas id="canvas" width="1920" height="1080" >
+            <canvas id="canvas" width="1366" height="768" >
                 <p>Your browser doesn't support HTML5 canvas.</p>
             </canvas>
         </div>
 
         <!-- Run the game code -->
-        <script type="text/javascript" src="html5game/Modular Space Ships Test.js?cachebust=1408473482"></script>
+        <script type="text/javascript" src="html5game/Click the Button.js?cachebust=357542497"></script>
 
         <!-- Builtin injector for injecting runner path -->
         
@@ -113,7 +123,7 @@
         
 
     </body>
-
+    <script type="module" src="../gamenavbar.js"></script>
     <!-- Custom PostBody code is injected here -->
     
 </html>
