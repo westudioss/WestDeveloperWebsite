@@ -1,3 +1,3 @@
 function sendPoints(value) {
-	console.log(value);
+	document.getElementsByClassName("points")[0].id = value;
 }
