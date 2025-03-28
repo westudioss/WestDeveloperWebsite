@@ -1,3 +1,7 @@
+import { auth, db } from "/firebase-config.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+import {   collection,   getDocs,   doc,   getDoc,   setDoc,   updateDoc, onSnapshot, } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+
 let str = "";
 let arr = [
 
@@ -48,3 +52,59 @@ for (var i = 0; i < arr.length; i++) {
 }
 
 document.getElementById("nav").innerHTML = str;
+
+
+async function getUserInfo() {
+    const user = auth.currentUser;
+    try {       
+      const userDocRef = doc(db, "users", user.uid);             
+      const userDoc = await getDoc(userDocRef);        
+      if (userDoc.exists()) {         
+        return (userDoc.data())        
+      } else {         
+        console.log("User document not found");         
+        return null;       
+      }     
+    } catch (error) {       
+      console.error("Error getting user info:", error);
+      return null;     
+    }   
+  }
+  
+  async function displayUsername() {
+      const userInfo = await getUserInfo(); 
+       
+      if (userInfo) {
+          let str = "<p>" + userInfo.username + "</p>";
+  
+          document.getElementById("profile-text").innerHTML = str;
+      }
+  }
+  
+  async function loadPicture() {
+      const userInfo = await getUserInfo();
+      if (userInfo) {
+        const user = auth.currentUser;
+        
+        const c = document.getElementById("profile-picture").getContext("2d");
+        const img = new Image();
+  
+        img.addEventListener("load", () => {
+          c.drawImage(img, 0, 0, 96, 96);
+        });
+        
+        img.src = userInfo.picture;
+  
+      }
+  }
+  
+  onAuthStateChanged(auth, async (user) => {     
+    if (user) {   
+      let str2 = "<div id='prof-div'><canvas id='profile-picture'></canvas></div><div id='profile-text'></div>";
+
+      document.getElementById("profile").innerHTML = str2;
+      
+      displayUsername();  
+      loadPicture();    
+    }   
+  });

@@ -52,4 +52,4 @@ onAuthStateChanged(auth, async (user) => {
     displayUsername();  
     loadPicture();    
   }   
-});  
+});
