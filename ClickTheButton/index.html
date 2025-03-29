@@ -11,6 +11,7 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="../index.css">
+        <link rel="stylesheet" href="../leaderboard.css">
 
         <!-- Builtin injector for disabling cache -->
         <meta http-equiv="pragma" content="no-cache"/>
@@ -23,13 +24,6 @@
 
         <!-- Set the background colour of the document -->
         <style>
-            body {
-                background: #0;
-                color: #cccccc;
-                margin: 0px;
-                padding: 0px;
-                border: 0px;
-            }
 
             canvas {
                 image-rendering: optimizeSpeed;
@@ -51,7 +45,7 @@
             
             /* Custom Runner Styles */
             div.gm4html5_div_class {
-                width: 70%;
+                width: 80%;
                 margin: auto;
             }
             div.gm4html5_login {
@@ -90,17 +84,23 @@
     
 
     <body>
+        
+        <div id="profile">
+            <p>Sign In!</p>
+        </div>
+
         <header>
             
-            <div><h1>Official</h1></div>
             <div id="logo"></div>
-            <div><h1>Website&nbsp;</h1></div>
+            <div><h1>Click the Button</h1></div>
         
         </header>
         
         <nav id="nav"></nav>
 
         <points class="points" id="0"></points>
+
+        <br><br>
         
         <div class="gm4html5_div_class" id="gm4html5_div_id">
             
@@ -113,7 +113,15 @@
             </canvas>
         </div>
 
-        <button id="save">Save Points</button>
+        <div id="save-btn">
+            <button id="save">Save Points</button>
+        </div>
+
+        <br><br>
+
+        <h2>Leaderboard</h2>
+
+        <div id="list"></div>
 
         <!-- Run the game code -->
         <script type="text/javascript" src="html5game/Click the Button.js?cachebust=357542497"></script>
@@ -128,7 +136,17 @@
 
     </body>
     <script type="module" src="../gamenavbar.js"></script>
-    <script type="module" src="001.js"></script>
-    <!-- Custom PostBody code is injected here -->
+    <script type="module" src="index.js"></script>
+    
+    <script>
+        function passDataToGM() {
+            const points = document.getElementsByClassName("points")[0].id;
+            gml_Script_gmcallback_datafromjs("", "", points);
+        }
+
+        setTimeout(function() {
+            passDataToGM();
+        }, 1000);
+    </script>
     
 </html>

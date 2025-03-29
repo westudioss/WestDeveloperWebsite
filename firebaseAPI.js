@@ -83,6 +83,7 @@ function handleAuth(event) {
           username: username,
           createdAt: new Date().toISOString(),
           picture : "",
+          points001 : "0"
         };
         
         // Save to Firestore

@@ -2,6 +2,7 @@
 
 body {
     padding: 64px;
+    font-family: "Source Code Pro", sans-serif;
     
     background: url("./imgs/background.jpeg");
     background-repeat: repeat;
@@ -190,4 +191,34 @@ nav {
     float: left;
     margin-top: 32px;
     margin-left: 32px;
+}
+
+#save {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 30%;
+    height: 64px;
+    margin-left: 35%;
+    font-size: 32px;
+}
+
+#save:hover {
+    border-style: solid;
+    border-color: white;
+}
+
+#save-btn {
+    margin: auto;
+    width: 50%;
+}
+
+h2 {
+    font-size: 64px;
+    font-family: "Source Code Pro", sans-serif;
+    color: white;
+    text-align: center;
 }
