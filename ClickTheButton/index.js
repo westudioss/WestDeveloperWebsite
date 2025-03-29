@@ -89,10 +89,11 @@ async function logAllUsers() {
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         loadPoints();
-		logAllUsers();
+		    logAllUsers();
     }   
 });
 
 document.getElementById("save").addEventListener('click', e => {
     savePoints();
+    logAllUsers();
 });
