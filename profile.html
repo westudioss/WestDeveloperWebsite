@@ -33,7 +33,7 @@
                 <label for="lineWidth">Line Width</label>
                 <input id="lineWidth" name='lineWidth' type="number" value="5">
                 <button id="clear">Clear</button>
-                <button id="save">Save</button>
+                <button id="save-btn">Save</button>
             </div>
             <div class="drawing-board">
                 <canvas id="drawing-board"></canvas>
@@ -42,8 +42,18 @@
 
         <br><br>
 
-        <div id="picturediv">
-            <canvas id="picture"></canvas>
+        <div id="profilediv">
+            <div id="picturediv2">
+                <canvas id="picture"></canvas>
+            </div>
+            
+            <button class="btn" id="edit-prof">Edit</button><br><br>
+
+            <div id="namediv"><div id="nametext"></div></div>
+            <button class="btn" id="edit-name">Edit</button>
+            <br><br>
+
+            <div id="stattext"></div>
         </div>
 
         <script type="module" src="profile.js"></script>

@@ -98,9 +98,9 @@ async function getUserInfo() {
       }
   }
   
-  onAuthStateChanged(auth, async (user) => {     
-    if (user) {   
-      let str2 = "<div id='prof-div'><canvas id='profile-picture'></canvas></div><div id='profile-text'></div>";
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      let str2 = "<a href='profile.html' style='color: white'><div id='prof-div'><canvas id='profile-picture'></canvas></div><div id='profile-text'></div></a>";
 
       document.getElementById("profile").innerHTML = str2;
       

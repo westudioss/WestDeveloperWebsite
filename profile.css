@@ -17,16 +17,56 @@ h1 {
 
 .container {
     width: 15%;
-    display: flex;
+    display: none;
     margin: auto;
 }
 
-#picturediv {
-    width: 128px;
-    height: 128px;
+#picturediv2 {
+    width: 256px;
+    height: 256px;
     background-color: white;
-    border-radius: 64px;
+    border-radius: 128px;
     overflow: hidden;
+    margin: auto;
+}
+
+#nametext {
+    color: white;
+    font-size: 64px;
+    text-align: center;
+    margin: auto;
+}
+
+.btn {
+    background-color: blue;
+    color: white;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-left: 46.5%;
+}
+
+.btn:hover {
+    border-style: solid;
+    border-color: white;
+}
+
+#stattext {
+    color: white;
+    font-size: 48px;
+    margin: auto;
+    white-space: pre-wrap;
+}
+
+#namediv input {
+    margin-left: 28%;
+    font-size: 32px;
+}
+
+#profilediv {
+    width: 50%;
+    margin: auto;
 }
 
 #toolbar {

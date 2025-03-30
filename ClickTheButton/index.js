@@ -22,7 +22,7 @@ async function getUserInfo() {
 async function savePoints() {
     const userInfo = await getUserInfo();
     if (userInfo) {
-      const points = document.getElementsByClassName("points")[0].id;
+      const points = document.getElementsByClassName("styling")[0].id;
       const user = auth.currentUser;
       const docRef = doc(db, "users", user.uid);
       userInfo.points001 = points;
@@ -35,7 +35,7 @@ async function loadPoints() {
   if (userInfo) {
     const user = auth.currentUser;
     const docRef = doc(db, "users", user.uid);
-    document.getElementsByClassName("points")[0].id = userInfo.points001;
+    document.getElementsByClassName("styling")[0].id = userInfo.points001;
     setDoc(docRef, userInfo);
   }
 }

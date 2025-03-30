@@ -33,6 +33,20 @@ async function savePicture(canvasUrl) {
     }
 }
 
+async function saveName() {
+  const userInfo = await getUserInfo();
+  if (userInfo) {
+    const user = auth.currentUser;
+    const docRef = doc(db, "users", user.uid);
+    userInfo.username = document.getElementById("name").value;
+    setDoc(docRef, userInfo);
+
+    document.getElementById("namediv").innerHTML = "<div id='nametext'></div>";
+
+    displayInfo();
+  }
+}
+
 async function loadPicture() {
     const userInfo = await getUserInfo();
     if (userInfo) {
@@ -42,7 +56,7 @@ async function loadPicture() {
       const img = new Image();
 
       img.addEventListener("load", () => {
-        c.drawImage(img, 0, 0);
+        c.drawImage(img, 0, 0, 256, 256);
       });
       
       img.src = userInfo.picture;
@@ -50,9 +64,50 @@ async function loadPicture() {
     }
 }
 
+async function displayInfo() {
+  const userInfo = await getUserInfo();
+   
+  if (userInfo) {
+      let str = userInfo.username;
+
+      document.getElementById("nametext").innerHTML = str;
+
+      str = "<ul>";
+      str += "<li>Member since: " + userInfo.createdAt.substring(0,10) + "</li><br>";
+      str += "<li>CtB points  : " + userInfo.points001 + "</li>";
+
+      document.getElementById("stattext").innerHTML = str;
+  }
+}
+
+document.getElementById("edit-name").addEventListener('click', e => {
+    const btn = document.getElementById("edit-name");
+
+    if (btn.innerText == "Edit") {
+        document.getElementById("namediv").innerHTML = "<input type='text' id='name' value=" + document.getElementById("nametext").innerText + ">";
+        
+        btn.innerText = "Save";
+    } else {
+      saveName();
+
+      btn.innerText = "Edit";
+    }
+});
+
+document.getElementById("edit-prof").addEventListener('click', e => {
+  const btn = document.getElementById("edit-prof");
+
+  if (btn.innerText == "Edit") {
+      btn.innerText = "Save";
+  } else {
+      btn.innerText = "Edit";
+  }
+});
+
 onAuthStateChanged(auth, async (user) => {     
   if (user) {             
-    loadPicture();      
+    loadPicture();  
+    displayInfo();    
   }   
 });  
 
@@ -61,6 +116,9 @@ const canvasOffsetY = canvas.offsetTop;
 
 canvas.width = 128;
 canvas.height = 128;
+
+document.getElementById('picture').width = 256;
+document.getElementById('picture').height = 256;
 
 let isPainting = false;
 let lineWidth = 5;
@@ -74,7 +132,7 @@ toolbar.addEventListener('click', e => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
-    if (e.target.id === 'save') {
+    if (e.target.id === 'save-btn') {
         let canvasUrl = canvas.toDataURL();
 
         savePicture(canvasUrl);

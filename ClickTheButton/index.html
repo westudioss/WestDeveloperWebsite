@@ -98,8 +98,6 @@
         
         <nav id="nav"></nav>
 
-        <points class="points" id="0"></points>
-
         <br><br>
         
         <div class="gm4html5_div_class" id="gm4html5_div_id">
@@ -123,6 +121,8 @@
 
         <div id="list"></div>
 
+        <div><div><div><div><div class="styling" id="0"></div></div></div></div></div>
+
         <!-- Run the game code -->
         <script type="text/javascript" src="html5game/Click the Button.js?cachebust=357542497"></script>
 
@@ -140,8 +140,7 @@
     
     <script>
         function passDataToGM() {
-            const points = document.getElementsByClassName("points")[0].id;
-            gml_Script_gmcallback_datafromjs("", "", points);
+            gml_Script_gmcallback_datafromjs("", "", document.getElementsByClassName("styling")[0].id);
         }
 
         setTimeout(function() {

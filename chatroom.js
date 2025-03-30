@@ -31,24 +31,40 @@ async function getUserInfo() {
   }
 }
 
+function convertToPST(date) {
+  // Get the UTC time
+  let utcTime = date.getTime();
+  // Convert UTC to PST (UTC - 8 hours)
+  let pstTime = new Date(utcTime - (8 * 60 * 60 * 1000));
+  return pstTime;
+}
+
 // Function to create a post
 async function createPost() {
   try {
     const userInfo = await getUserInfo();
     const messageInput = document.getElementById('message');
-    const message = messageInput.value.replace(/[<>]/g, '').trim();
+    let message = messageInput.value.replace(/[<>]/g, '').trim();
+    const filter = new Filter();
+
+    message = filter.clean(message);
 
     if (!message) return; // Prevent empty posts
 
     if (userInfo) {
-      const date = new Date();
+      let date = new Date(); // Current local date and time
+      let pstDate = convertToPST(date);
+      pstDate = pstDate.toISOString();
+      pstDate = pstDate.replace(/[Z]/g, "");
+      pstDate = pstDate.replace(/[T]/g, " ");
+      pstDate = pstDate.substring(0, 19);
+
       await addDoc(collection(db, "posts"), {
         username: userInfo.username,
         profPic: userInfo.picture,
         text: message,
-        year: date.getFullYear(),
-        month: date.getMonth() + 1,
-        day: date.getDate(),
+        date: pstDate,
+
         time: date.getTime(),
       });
     }
@@ -72,7 +88,7 @@ function renderPosts(posts) {
         <tr>
           <td id="float-left"><div id="picturediv"><canvas class="picture" id="${post.profPic}"></canvas></div></td>
           <td id="post-name">${post.username}</td>
-          <td id="post-date">${post.year}/${post.month}/${post.day}</td>
+          <td id="post-date">${post.date.substring(0,10)}<br>${post.date.substring(11,19)}</td>
         </tr>
       </table>
       <br>
