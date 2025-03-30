@@ -44,10 +44,7 @@ async function createPost() {
   try {
     const userInfo = await getUserInfo();
     const messageInput = document.getElementById('message');
-    let message = messageInput.value.replace(/[<>]/g, '').trim();
-    const filter = new Filter();
-
-    message = filter.clean(message);
+    const message = messageInput.value.replace(/[<>]/g, '').trim();
 
     if (!message) return; // Prevent empty posts
 
