@@ -37,6 +37,7 @@ async function loadPoints() {
     const docRef = doc(db, "users", user.uid);
     document.getElementsByClassName("styling")[0].id = userInfo.points001;
     setDoc(docRef, userInfo);
+    document.getElementsByClassName("load2")[0].id = 1;
   }
 }
 

@@ -122,6 +122,8 @@
         <div id="list"></div>
 
         <div><div><div><div><div class="styling" id="0"></div></div></div></div></div>
+        <div class="load" id="0"></div>
+        <div class="load2" id="0"></div>
 
         <!-- Run the game code -->
         <script type="text/javascript" src="html5game/Click the Button.js?cachebust=357542497"></script>
@@ -140,12 +142,14 @@
     
     <script>
         function passDataToGM() {
-            gml_Script_gmcallback_datafromjs("", "", document.getElementsByClassName("styling")[0].id);
+            if (document.getElementsByClassName("load")[0].id == 1 && document.getElementsByClassName("load2")[0].id == 1) {
+                gml_Script_gmcallback_datafromjs("", "", document.getElementsByClassName("styling")[0].id);
+                clearInterval(interval);
+            }
         }
 
-        setTimeout(function() {
-            passDataToGM();
-        }, 4000);
+        var interval = setInterval(passDataToGM,100);
+
     </script>
     
 </html>
