@@ -26,7 +26,7 @@ async function savePoints() {
       const user = auth.currentUser;
       const docRef = doc(db, "users", user.uid);
       
-      if (points > userInfo.points002) {
+      if (parseInt(points) > parseInt(userInfo.points002)) {
         userInfo.points002 = points;
       }
       
