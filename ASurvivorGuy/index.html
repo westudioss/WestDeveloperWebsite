@@ -17,7 +17,7 @@
         <meta http-equiv="pragma" content="no-cache"/>
 
         <!-- Set the title bar of the page -->
-        <title>Click The Button</title>
+        <title>Survivor Guy</title>
 
         <!-- Custom PreStyle code is injected here -->
         
@@ -92,7 +92,7 @@
         <header>
             
             <div id="logo"></div>
-            <div><h1>Click the Button</h1></div>
+            <div><h1>Survivor Guy</h1></div>
         
         </header>
         
@@ -126,7 +126,7 @@
         <div class="load2" id="0"></div>
 
         <!-- Run the game code -->
-        <script type="text/javascript" src="html5game/Click the Button.js?cachebust=357542497"></script>
+        <script type="text/javascript" src="html5game/Survivor Guy.js?cachebust=1693570925"></script>
 
         <!-- Builtin injector for injecting runner path -->
         
@@ -139,17 +139,5 @@
     </body>
     <script type="module" src="../gamenavbar.js"></script>
     <script type="module" src="index.js"></script>
-    
-    <script>
-        function passDataToGM() {
-            if (document.getElementsByClassName("load")[0].id == 1 && document.getElementsByClassName("load2")[0].id == 1) {
-                gml_Script_gmcallback_datafromjs("", "", document.getElementsByClassName("styling")[0].id);
-                clearInterval(interval);
-            }
-        }
-
-        var interval = setInterval(passDataToGM,100);
-
-    </script>
     
 </html>

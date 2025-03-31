@@ -53,3 +53,25 @@ onAuthStateChanged(auth, async (user) => {
     loadPicture();    
   }   
 });
+
+async function addVariable() {
+  try {
+    const usersCollection = collection(db, "users");
+    const querySnapshot = await getDocs(usersCollection);
+    let lb = [];
+    
+    querySnapshot.forEach( async (document) => {
+      
+    const docRef = doc(db, "users", document.id);
+
+    await updateDoc(docRef, {
+        points002: "0"
+    });
+
+    });
+  } catch (error) {
+    console.error("Error getting users:", error);
+  }
+
+}
+//addVariable();
