@@ -3,7 +3,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/fireba
 import { 
   getAuth, 
   createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword 
+  signInWithEmailAndPassword,
+  sendEmailVerification,
 } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
 import { 
   getFirestore, 
@@ -47,10 +48,6 @@ function showMessage(message) {
   messageElement.innerHTML = message;
   messageElement.style.opacity = 1;
   
-  
-  setTimeout(function() {
-    messageElement.style.opacity = 0;
-  }, 5000);
 }
 
 // Handle form submission
@@ -76,6 +73,8 @@ function handleAuth(event) {
       .then((userCredential) => {
         // Account created successfully
         const user = userCredential.user;
+
+        sendEmailVerification(user);
         
         // Create user profile in Firestore
         const userData = {
@@ -92,14 +91,14 @@ function handleAuth(event) {
         return setDoc(docRef, userData);
       })
       .then(() => {
-        showMessage('Account Created Successfully');
+        showMessage('Account Created Successfully, Verify email sent to you or your account will be deleted');
         
         // Store user ID
         localStorage.setItem('loggedInUserId', auth.currentUser.uid);
         
         // Redirect after short delay
         setTimeout(() => {
-          window.location.href = 'index.html';
+          //window.location.href = 'index.html';
         }, 1500);
       })
       .catch((error) => {

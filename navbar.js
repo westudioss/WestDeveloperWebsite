@@ -1,6 +1,6 @@
 import { auth, db } from "/firebase-config.js";
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
-import {   collection,   getDocs,   doc,   getDoc,   setDoc,   updateDoc, onSnapshot, } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+import { onAuthStateChanged, deleteUser } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+import {   collection,   getDocs,   doc,   getDoc,   setDoc,   updateDoc, onSnapshot, deleteDoc,} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
 
 let str = "";
 let arr = [
@@ -53,6 +53,15 @@ for (var i = 0; i < arr.length; i++) {
 
 document.getElementById("nav").innerHTML = str;
 
+async function deleteCurUser() {
+  const user = auth.currentUser;
+  console.log("deleting user");
+
+  const userDocRef = doc(db, "users", user.uid);
+  await deleteDoc(userDocRef);
+  
+  setTimeout(deleteUser(user), 5000);
+}
 
 async function getUserInfo() {
     const user = auth.currentUser;
@@ -97,6 +106,19 @@ async function getUserInfo() {
   
       }
   }
+
+  async function checkUserVerified() {
+      const user = auth.currentUser;
+      var path = window.location.pathname;
+      var page = path.split("/").pop();
+
+      if (page != "login.html")
+        if (user.emailVerified) {
+          
+        } else {
+          deleteCurUser();
+        }
+  }
   
   onAuthStateChanged(auth, async (user) => {
     if (user) {
@@ -105,6 +127,7 @@ async function getUserInfo() {
       document.getElementById("profile").innerHTML = str2;
       
       displayUsername();  
-      loadPicture();    
+      loadPicture();
+      checkUserVerified();
     }   
   });
