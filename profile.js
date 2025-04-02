@@ -98,8 +98,12 @@ document.getElementById("edit-prof").addEventListener('click', e => {
   const btn = document.getElementById("edit-prof");
 
   if (btn.innerText == "Edit") {
+      document.getElementsByClassName("container")[0].style.display = "flex";
       btn.innerText = "Save";
   } else {
+      let canvasUrl = canvas.toDataURL();
+      savePicture(canvasUrl);
+      document.getElementsByClassName("container")[0].style.display = "none";
       btn.innerText = "Edit";
   }
 });
@@ -127,15 +131,11 @@ let startY;
 
 toolbar.addEventListener('click', e => {
     if (e.target.id === 'clear') {
-        let canvasUrl = canvas.toDataURL();
-        console.log(canvasUrl);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
     if (e.target.id === 'save-btn') {
-        let canvasUrl = canvas.toDataURL();
-
-        savePicture(canvasUrl);
+        
     }
 });
 
@@ -158,7 +158,7 @@ const draw = (e) => {
     ctx.lineWidth = lineWidth;
     ctx.lineCap = 'round';
 
-    ctx.lineTo(e.clientX - canvasOffsetX, e.clientY - 460);
+    ctx.lineTo(e.offsetX, e.offsetY);
     ctx.stroke();
 }
 
