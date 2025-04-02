@@ -46,6 +46,24 @@ header h1 {
     text-align: center;
 }
 
+#announcement {
+    font-size: 48px;
+    font-family: "Source Code Pro", sans-serif;
+    color: white;
+    text-align: center;
+}
+
+#announcement a {
+    color: white;
+}
+
+#gamedetails {
+    font-size: 28px;
+    font-family: "Source Code Pro", sans-serif;
+    color: white;
+    text-align: center;
+}
+
 #welcome {
     font-size: 64px;
     font-family: "Source Code Pro", sans-serif;
@@ -148,6 +166,7 @@ nav {
     width: 512px;
     height: 512px;
     background-color: darkblue;
+    margin-bottom: 32px;
 }
 
 .pubitem h1 {
