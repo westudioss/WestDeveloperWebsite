@@ -27,6 +27,8 @@ async function savePoints() {
       const docRef = doc(db, "users", user.uid);
       userInfo.points001 = points;
       setDoc(docRef, userInfo);
+      document.getElementsByClassName("stylingCode")[0].id = "0";
+      document.getElementsByClassName("styling")[0].id = 0;
     }
 }
 
@@ -94,7 +96,19 @@ onAuthStateChanged(auth, async (user) => {
     }   
 });
 
-document.getElementById("save").addEventListener('click', e => {
-    savePoints();
-    logAllUsers();
-});
+//document.getElementById("save").addEventListener('click', e => {
+//    savePoints();
+//    logAllUsers();
+//});
+
+function saveData() {
+    if (document.getElementsByClassName("stylingCode")[0].id == "723459324592345769234867893486759302768975298765927569039285685760987509867") {
+        savePoints();
+        logAllUsers();
+    } else {
+        document.getElementsByClassName("stylingCode")[0].id = "0";
+        document.getElementsByClassName("styling")[0].id = 0;
+    }
+}
+
+setInterval(saveData, 500);
