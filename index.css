@@ -47,10 +47,11 @@ header h1 {
 }
 
 #announcement {
-    font-size: 48px;
-    font-family: "Source Code Pro", sans-serif;
+    font-size: 64px;
+    font-family: serif, sans-serif;
     color: white;
-    text-align: center;
+    text-align: right;
+    margin-right: 160px;
 }
 
 #announcement a {
@@ -150,13 +151,29 @@ nav {
 }
 
 .published {
-    display: grid;
-    grid-template-columns: auto auto auto;
     grid-column-gap: 64px;
-    width: 100%;
+    height: 1000px;
+    width: 550px;
+    margin-left: 32px;
+    overflow-y: auto;
+    justify-content: center;
+    align-content: center;
+    float: left;
+}
+
+.game {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 64px;
     justify-content: center;
     align-content: center;
     margin-top: 32px;
+    float: right;
+}
+
+#online-game {
+    grid-template-columns: auto auto auto;
+    float: none;
 }
 
 .pubitem {
@@ -212,17 +229,15 @@ nav {
     margin-left: 32px;
 }
 
-#save {
+.save {
     background-color: blue;
     color: white;
-    border: none;
     padding: 8px 15px;
     cursor: pointer;
     border-radius: 5px;
-    width: 30%;
     height: 64px;
-    margin-left: 35%;
     font-size: 32px;
+    margin-left: 32px;
 }
 
 #save:hover {
@@ -231,8 +246,7 @@ nav {
 }
 
 #save-btn {
-    margin: auto;
-    width: 50%;
+    width: 75%;
 }
 
 h2 {
@@ -240,4 +254,16 @@ h2 {
     font-family: "Source Code Pro", sans-serif;
     color: white;
     text-align: center;
+}
+
+#animated-rainbow {
+    background: linear-gradient(to left, #f00, #ff2b00, #f50, #ff8000, #fa0, #ffd500, #ff0, #d4ff00, #af0, #80ff00, #5f0, #2bff00, #0f0, #00ff2a, #0f5, #00ff80, #0fa, #00ffd5, #0ff, #00d5ff, #0af, #0080ff, #05f, #002aff, #00f, #2b00ff, #50f, #8000ff, #a0f, #d400ff, #f0f, #ff00d4, #f0a, #ff0080, #f05, #ff002b, #f00);
+    animation: rainbow-move-left-right 5s linear infinite alternate;
+    -webkit-background-clip: text;
+    background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+@keyframes rainbow-move-left-right {
+    0% {background-position: 0 0    }
+    100% {background-position: -500px 0}
 }

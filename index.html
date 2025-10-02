@@ -44,8 +44,38 @@
             </div>
         </div>
 
-        <div id="announcement">
-            <a href="./ASurvivorGuy/index.html">Click me to check out the current featured game!</a>
+        <div id="announcement" style="margin-right: 6px;">
+            <i>----- Change log ------------------ Current featured games ------------</i>
+        </div>
+
+        <div class="game">
+            
+            <div class="pubitem">
+                <input type="image" class="pubimage" src="./imgs/clickthebuttonbanner.png"/>
+                
+                <h1>Click the Button</h1>
+                
+                <p>Click the button, gain points, see how you compare to others on the leaderboard!</p>
+                <br><br><br><br>
+                <a class="navdiv" href="./ClickTheButton/index.html">
+                    <input type="image" class="navlogo" src="./imgs/play.png"/>
+                    <p class="navtext" id="publink">Play game</p>
+                </a>
+            </div>
+
+            <div class="pubitem">
+                <input type="image" class="pubimage" src="./imgs/survivorguybanner.png"/>
+                
+                <h1>Survivor Guy</h1>
+                
+                <p>Survive as long as possible while defending against endless hordes of enemies. Level up and gain boosts and abilities through various upgrade cards.</p>
+                <br><br><br>
+                <a class="navdiv" href="./ASurvivorGuy/index.html">
+                    <input type="image" class="navlogo" src="./imgs/play.png"/>
+                    <p class="navtext" id="publink">Play game</p>
+                </a>
+            </div>
+        
         </div>
 
         <br><br>
@@ -53,12 +83,23 @@
         <div class="published" style="font-size: 24px;">
             
             <div class="pubitem" style="height:auto;">
-                <h1>Changelog V1.3.0</h1><br>
+                <h1>Changelog V1.4.0</h1><br>
+                
+                <p>
+                    - Completely reworked how point saving works and patched all point exploits.<br><br>
+                    - Redesigned the home page.<br><br>
+                    - Added a "Random Tobu Song Generator" on the home page.<br><br><br>
+                    2025/10/2 at 5:33am
+                </p>
+            </div>
+
+            <div class="pubitem" style="height:auto;">
+                <h1>Changelog V1.3.1</h1><br>
                 
                 <p>
                     - New Survivor Guy update!<br><br>
                     - A couple new cards.<br><br>
-                    - New ranged enemy, plus lots of late-game balancing.<br><br><br><br><br>
+                    - New ranged enemy, plus lots of late-game balancing.<br><br><br>
                     2025/04/3 at 4:20pm
                 </p>
             </div>
@@ -69,18 +110,18 @@
                 <p>
                     - We are now a mostly secure site! Any new account will require email verification.<br><br>
                     - Unfortunately that meant that I had to purge all existing accounts, but I will be glad to return any lost points.<br><br>
-                    - Profile picture drawing is finally fixed and back in action.<br><br><br><br><br>
+                    - Profile picture drawing is finally fixed and back in action.<br><br><br>
                     2025/04/1 at 6:03pm
                 </p>
             </div>
 
             <div class="pubitem" style="height:auto;">
-                <h1>Changelog V1.2.0</h1><br>
+                <h1>Changelog V1.2.1</h1><br>
                 
                 <p>
                     - Survivor Guy Update<br><br>
                     - Many new cards including Sniper, Shotgun, Fast Fingers, and more!<br><br>
-                    - Enemy HP now begins rapidly scaling around the 4 minute mark.<br><br><br><br><br><br><br><br><br>
+                    - Enemy HP now begins rapidly scaling around the 4 minute mark.<br><br><br>
                     2025/03/31 at 5:20pm
                 </p>
             </div>
@@ -90,7 +131,7 @@
                 
                 <p>
                     - New game!!<br><br>
-                    - Play Survivor Guy and survive endless waves of enemies.<br><br><br><br><br><br><br><br><br><br><br><br>
+                    - Play Survivor Guy and survive endless waves of enemies.<br><br><br>
                     2025/03/31 at 2:45am
                 </p>
             </div>
@@ -101,7 +142,7 @@
                 <p>
                     - Click the button update.<br><br>
                     - Little guy to support you in your Click the Button journey.<br><br>
-                    - Points are now loaded dynamically and shouldn't glitch or make you wait.<br><br><br><br><br><br><br><br>
+                    - Points are now loaded dynamically and shouldn't glitch or make you wait.<br><br><br>
                     2025/03/30 at 4:40pm
                 </p>
             </div>
@@ -118,6 +159,20 @@
                 </p>
             </div>
         
+        </div>
+
+        <audio id="tobuSong">
+            <source src="./songs/Tobu-Hope.mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="navtext" id="songText" style="font-size: 48px; margin-left: 64px;">
+            <p>Random Tobu Song Generator<br><p id="animated-rainbow">Now playing: Tobu - Hope</p></p>
+        </div>
+
+        <div id="save-btn">
+            <button class="save" id="song-generate" style="float: left; margin-left: 64px;">Generate</button>
+            <button class="save" id="song-play" style="float: left">Play</button>
+            <button class="save" id="song-pause" style="float: left">Pause</button>
         </div>
     
     </body>
