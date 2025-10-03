@@ -72,9 +72,9 @@ async function displayInfo() {
 
       document.getElementById("nametext").innerHTML = str;
 
-      str = "<ul>";
-      str += "<li>Member since: " + userInfo.createdAt.substring(0,10) + "</li><br>";
-      str += "<li>CtB points  : " + userInfo.points001 + "</li>";
+      str = "";
+      //str += "<li>Member since: " + userInfo.createdAt.substring(0,10) + "</li><br>";
+      //str += "<li>CtB points  : " + userInfo.points001 + "</li>";
 
       document.getElementById("stattext").innerHTML = str;
   }

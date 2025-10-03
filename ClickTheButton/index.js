@@ -54,6 +54,7 @@ async function logAllUsers() {
       let user = doc.data();
       let name = user.username;
       let points = user.points001;
+      let pic = user.picture;
       let id = "";
 
       if (name == userInfo.username) {
@@ -65,6 +66,7 @@ async function logAllUsers() {
           n : name,
           p : points,
           ID : id,
+          pc : pic,
 
       })
 
@@ -72,21 +74,37 @@ async function logAllUsers() {
 
     lb.sort(({p:a}, {p:b}) => b-a);
 
-    let str = "<table><tr><th>#</th><th>Name</th><th>Points</th></tr>";
+    let str = `<table><tr><th>#</th><th>Name</th><th>Points</th></tr>`;
     for (let i=0; i < lb.length; i++) {
-        str += "<tr" + " id=" + lb[i].ID + ">";
-        str += "<td>" + (i+1) + "</td>";
-        str += "<td>" + lb[i].n + "</td>";
-        str += "<td>" + lb[i].p + "</td>";
-        str += "</tr>";
+        str += `<tr id="${lb[i].ID}">
+        <td>${(i+1)}</td>
+        <td><div id="picturediv"><canvas class="picture" id="${lb[i].pc}"></canvas></div><span>‎ ${lb[i].n}</span></td>
+        <td>${lb[i].p}</td>
+        </tr>`;
     }
-    str += "</table>";
+    str += `</table>`;
     document.getElementById("list").innerHTML = str;
+
+    renderImages();
 
   } catch (error) {
     console.error("Error getting users:", error);
   }
+}
 
+function renderImages() {
+    var pics = document.getElementsByClassName("picture");
+
+    for(var i = 0; i < pics.length; i++) {
+      const c = pics[i].getContext("2d");
+      const img = new Image();
+
+      img.addEventListener("load", () => {
+        c.drawImage(img, 0, 0, 64, 64);
+      });
+      
+      img.src = pics[i].id;
+  }
 }
 
 onAuthStateChanged(auth, async (user) => {

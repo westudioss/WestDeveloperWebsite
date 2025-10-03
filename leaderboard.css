@@ -26,3 +26,12 @@ td {
     overflow-y: scroll;
     height: 550px;
 }
+
+#picturediv {
+    width: 64px;
+    height: 64px;
+    margin: 0;
+    background-color: white;
+    border-radius: 32px;
+    overflow: hidden;
+}

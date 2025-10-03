@@ -9,6 +9,7 @@ import {
   orderBy,
   onSnapshot,
   addDoc,
+  deleteDoc,
 } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
 
 // Function to get the user info from the database
@@ -72,8 +73,8 @@ async function createPost() {
   }
 }
 
-// Function to render posts
-function renderPosts(posts) {
+var addRemove = true;
+async function renderPosts(posts) {
   const postsContainer = document.getElementById("all-posts");
   
   // Sort posts by time in descending order
@@ -90,10 +91,29 @@ function renderPosts(posts) {
       </table>
       <br>
       <p>${post.text}</p>
+      <input type="image" class="delete-post" id="${post.id}" style="display: none;" src="./imgs/remove.png"/>
     </div>
   `).join('');
 
   postsContainer.innerHTML = postsHTML;
+  
+  const userInfo = await getUserInfo();
+
+  if (userInfo.email == "thebigc9999@gmail.com") {
+    const buttons = document.querySelectorAll('.delete-post');
+
+    buttons.forEach(button => {
+      button.style.display = "block";
+      button.addEventListener('click', function() {
+        deletePost(this.id);
+      });
+    });
+  }
+}
+
+async function deletePost(postID) {
+  const postDocRef = doc(db, "posts", postID);
+  await deleteDoc(postDocRef);
 }
 
 function renderImages() {
