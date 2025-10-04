@@ -148,7 +148,7 @@
     
     <script>
         function passDataToGM() {
-            if (document.getElementsByClassName("load")[0].id == 1 && document.getElementsByClassName("load2")[0].id == 1) {
+            if (document.getElementsByClassName("load")[0].id == 1 && document.getElementsByClassName("load2")[0].id == 1 && document.getElementsByClassName("styling")[0].id != 0) {
                 gml_Script_gmcallback_datafromjs("", "", document.getElementsByClassName("styling")[0].id);
                 clearInterval(interval);
             }

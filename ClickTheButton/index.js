@@ -40,6 +40,8 @@ async function loadPoints() {
     document.getElementsByClassName("styling")[0].id = userInfo.points001;
     setDoc(docRef, userInfo);
     document.getElementsByClassName("load2")[0].id = 1;
+
+    setInterval(saveData, 500);
   }
 }
 
@@ -128,5 +130,3 @@ function saveData() {
         document.getElementsByClassName("styling")[0].id = 0;
     }
 }
-
-setInterval(saveData, 500);
